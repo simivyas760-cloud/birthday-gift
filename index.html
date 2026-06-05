@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Archita ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+overflow:hidden;
+background:#000;
+color:white;
+}
+
+section{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+transition:1.5s;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+#intro{
+background:linear-gradient(180deg,#000,#081122);
+}
+
+.title{
+font-size:4rem;
+font-family:'Dancing Script',cursive;
+text-align:center;
+}
+
+.subtitle{
+margin-top:20px;
+font-size:1.3rem;
+opacity:.8;
+}
+
+.glow{
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px pink;
+}
+to{
+text-shadow:0 0 35px #ff66c4;
+}
+}
+
+#cake{
+background:radial-gradient(circle,#1d1535,#050505);
+}
+
+.cake{
+font-size:180px;
+}
+
+.flame{
+font-size:70px;
+animation:flicker .3s infinite alternate;
+}
+
+@keyframes flicker{
+from{transform:translateY(-5px);}
+to{transform:translateY(5px);}
+}
+
+button{
+padding:15px 35px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin-top:30px;
+font-size:18px;
+background:#ff5fa2;
+color:white;
+box-shadow:0 0 20px rgba(255,95,162,.5);
+}
+
+#wish{
+background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4);
+color:#222;
+padding:30px;
+}
+
+.message{
+max-width:900px;
+line-height:1.8;
+font-size:1.2rem;
+text-align:center;
+}
+
+#gallery{
+background:#000;
+}
+
+.memory-card{
+width:70%;
+max-width:800px;
+height:500px;
+border-radius:25px;
+overflow:hidden;
+position:relative;
+box-shadow: 0 0 40px rgba(255,255,255,.15);
+background: #111; /* Dark background placeholder while images load */
+}
+
+.memory-card img{
+width:100%;
+height:100%;
+min-width: 100%;
+min-height: 100%;
+object-fit:cover;
+position:absolute;
+opacity:0;
+transition:2s;
+}
+
+.memory-card img.active{
+opacity:1;
+transform:scale(1.05);
+}
+
+.memory-text{
+margin-top:25px;
+font-size:1.3rem;
+font-family:'Dancing Script',cursive;
+color:white;
+}
+
+#final{
+background: linear-gradient(180deg, #090909, #1a0030);
+}
+
+.final-msg{
+font-family:'Dancing Script',cursive;
+font-size:4rem;
+text-align:center;
+}
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 10s linear infinite;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh);
+opacity:1;
+}
+to{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+.typewriter{
+overflow:hidden;
+border-right:2px solid white;
+white-space:nowrap;
+animation:
+typing 6s steps(60,end),
+blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bg-music" loop>
+<source src="music/birthdaysong.mp3" type="audio/mp3">
+</audio>
+
+<canvas id="stars"></canvas>
+
+<section id="intro">
+<h1 class="title glow">
+A Special Surprise For
+<br>
+Archita ✨
+</h1>
+<p class="subtitle">
+6 June Birthday Celebration
+</p>
+<button onclick="nextToCake()">
+Start Surprise ❤️
+</button>
+</section>
+
+<section id="cake" class="hidden">
+<div class="cake">🎂</div>
+<div class="flame" id="flame">🔥</div>
+<h2>Make A Wish...</h2>
+<button onclick="blowCandle()">
+Blow Candle 💨
+</button>
+</section>
+
+<section id="wish" class="hidden">
+<h1 style="font-size:4rem;">
+Happy Birthday Archita 🎉
+</h1>
+<div class="message">
+<p>
+Happy Birthday to my wonderful best friend!
+May you always believe in yourself,
+achieve everything you dream of,
+excel in your studies,
+and live a life filled with success,
+happiness, good health,
+beautiful memories,
+and endless opportunities.
+
+Your smile brightens every room,
+your kindness touches every heart,
+and your determination inspires everyone around you.
+
+May every challenge turn into success,
+every wish turn into reality,
+and every day bring a new reason to smile.
+
+Thank you for being such an amazing friend.
+
+Keep shining.
+Keep smiling.
+Keep being YOU.
+❤️✨❤️
+</p>
+</div>
+<button onclick="startGallery()">
+See Our Memories 📸
+</button>
+</section>
+
+<section id="gallery" class="hidden">
+<h1 class="title">
+Memory Lane 📸
+</h1>
+<div class="memory-card">
+<img src="photos/photo1.jpeg" class="active">
+<img src="photos/photo2.jpeg">
+<img src="photos/photo3.jpeg">
+<img src="photos/photo4.jpeg">
+<img src="photos/photo5.jpeg">
+<img src="photos/photo6.jpeg">
+<img src="photos/photo7.jpeg">
+<img src="photos/photo8.jpeg">
+<img src="photos/photo9.jpeg">
+<img src="photos/photo10.jpeg">
+</div><div class="memory-text">
+Every picture tells a beautiful story ❤️
+</div>
+</section>
+
+<section id="final" class="hidden">
+<div class="final-msg">
+Happy Birthday
+<br>
+Bestie ❤️
+</div>
+<br><br>
+<h2 class="typewriter">
+May all your dreams come true ✨
+</h2>
+</section>
+
+<script>
+function nextToCake(){
+document.getElementById("bg-music").play().catch(error => {
+    console.log("Audio waiting for interaction: ", error);
+});
+intro.classList.add("hidden");
+cake.classList.remove("hidden");
+}
+
+function blowCandle(){
+document.getElementById("flame").style.display="none";
+setTimeout(()=>{
+cake.classList.add("hidden");
+wish.classList.remove("hidden");
+createHearts();
+},1500);
+}
+
+function startGallery(){
+wish.classList.add("hidden");
+gallery.classList.remove("hidden");
+
+let photos = document.querySelectorAll(".memory-card img");
+let index = 0;
+
+if (photos.length === 0) {
+    console.error("No images found in your HTML syntax.");
+    setTimeout(() => {
+        gallery.classList.add("hidden");
+        final.classList.remove("hidden");
+    }, 2000);
+    return;
+}
+
+// Cycles through the images cleanly every 4 seconds
+let galleryInterval = setInterval(() => {
+    photos[index].classList.remove("active");
+    index = (index + 1) % photos.length;
+    photos[index].classList.add("active");
+}, 4000);
+
+// Keeps the gallery screen open for the entire duration of your photo slideshow
+setTimeout(() => {
+    clearInterval(galleryInterval);
+    gallery.classList.add("hidden");
+    final.classList.remove("hidden");
+}, (photos.length * 4000));
+}
+
+function createHearts(){
+for(let i=0;i<50;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(5+Math.random()*8)+"s";
+document.body.appendChild(h);
+}
+}
+
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let stars=[];
+for(let i=0;i<250;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2
+});
+}
+
+function animateStars(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="white";
+stars.forEach(s=>{
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+});
+requestAnimationFrame(animateStars);
+}
+animateStars();
+</script>
+
+</body>
+</html>
